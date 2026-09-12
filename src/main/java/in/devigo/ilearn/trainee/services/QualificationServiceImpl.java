@@ -93,7 +93,7 @@ public class QualificationServiceImpl implements QualificationService {
 
 
     @Override
-    public void DeleteQualification(Long traineeId, Long qualificationId) {
+    public void deleteQualification(Long traineeId, Long qualificationId) {
         Qualification qualification =
                 qualificationRepo.findByIdAndTraineeId(
                         qualificationId,

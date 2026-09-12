@@ -23,7 +23,7 @@ public interface QualificationService {
             QualificationRequest request
     );
 
-    void DeleteQualification(
+    void deleteQualification(
             Long traineeId,
             Long qualificationId
     );
