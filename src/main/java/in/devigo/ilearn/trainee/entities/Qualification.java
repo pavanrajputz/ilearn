@@ -23,7 +23,7 @@ public class Qualification {
             name = "trainee_id",
             nullable = false
     )
-    private TraineeProfile traineeProfile;
+    private TraineeProfile trainee;
 
     @Column(columnDefinition = "MEDIUMTEXT", nullable = false)
     private String degree;
