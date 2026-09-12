@@ -1,6 +1,7 @@
 package in.devigo.ilearn.trainee.contollers;
 
 
+import in.devigo.ilearn.security.SecurityUtils;
 import in.devigo.ilearn.trainee.dtos.TraineeProfileRequest;
 import in.devigo.ilearn.trainee.dtos.TraineeProfileResponse;
 import in.devigo.ilearn.trainee.services.TraineeProfileService;
@@ -17,13 +18,14 @@ import org.springframework.web.bind.annotation.*;
 public class TraineeProfileController {
 
     private final TraineeProfileService service;
+    private final SecurityUtils securityUtils;
 
     @PostMapping
     public ResponseEntity<TraineeProfileResponse> createProfile(
             @Valid @RequestBody TraineeProfileRequest request,
             Authentication authentication
     ){
-        Long userId = Long.valueOf(authentication.getName());
+        Long userId = securityUtils.getCurrentUserId();
 
         TraineeProfileResponse response =
                 service.createProfile(userId, request);
