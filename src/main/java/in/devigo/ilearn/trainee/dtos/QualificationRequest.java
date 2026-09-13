@@ -29,5 +29,5 @@ public class QualificationRequest {
     @Max(value = 2100, message = "Invalid start year.")
     private Integer endYear;
 
-    private BigDecimal grad;
+    private BigDecimal grade;
 }

@@ -86,7 +86,7 @@ public class QualificationServiceImpl implements QualificationService {
         qualification.setInstitution(request.getInstitute());
         qualification.setStartYear(request.getStartYear());
         qualification.setEndYear(request.getEndYear());
-        qualification.setGrade(request.getGrad());
+        qualification.setGrade(request.getGrade());
 
         return mapToResponse(qualification);
     }
