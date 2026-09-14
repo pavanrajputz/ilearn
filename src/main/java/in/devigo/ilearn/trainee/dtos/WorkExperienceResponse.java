@@ -1,6 +1,6 @@
 package in.devigo.ilearn.trainee.dtos;
 
-import in.devigo.ilearn.trainee.entities.EmployementType;
+import in.devigo.ilearn.trainee.entities.EmploymentType;
 import lombok.Builder;
 import lombok.Data;
 
@@ -16,7 +16,7 @@ public class WorkExperienceResponse {
 
     private String jobTitle;
 
-    private EmployementType employmentType;
+    private EmploymentType employmentType;
 
     private LocalDate startDate;
 

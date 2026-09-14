@@ -1,10 +1,7 @@
 package in.devigo.ilearn.trainee.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
@@ -14,6 +11,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class WorkExperience {
 
     @Id
@@ -22,7 +20,7 @@ public class WorkExperience {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trainee_id")
-    private TraineeProfile traineeId;
+    private TraineeProfile trainee;
 
     @Column(name = "company_name",  nullable = false)
     private String companyName;
@@ -32,7 +30,7 @@ public class WorkExperience {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "employement_type",  nullable = false)
-    private EmployementType employementType;
+    private EmploymentType employmentType;
 
     @Column(name = "start_date",  nullable = false)
     private LocalDate startDate;
