@@ -3,7 +3,6 @@ package in.devigo.ilearn.trainee.contollers;
 import in.devigo.ilearn.security.SecurityUtils;
 import in.devigo.ilearn.trainee.dtos.WorkExperienceRequest;
 import in.devigo.ilearn.trainee.dtos.WorkExperienceResponse;
-import in.devigo.ilearn.trainee.entities.WorkExperience;
 import in.devigo.ilearn.trainee.services.WorkExperienceService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

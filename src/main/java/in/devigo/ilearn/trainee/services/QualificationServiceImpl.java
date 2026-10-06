@@ -23,7 +23,7 @@ public class QualificationServiceImpl implements QualificationService {
 
     @Override
     public QualificationResponse createQualification(Long traineeId, QualificationRequest request) {
-        TraineeProfile profile = traineeRepo.findByUserId(traineeId)
+        TraineeProfile profile = traineeRepo.findByUserIdAndIsDeletedFalse(traineeId)
                 .orElseThrow(() ->
                         new ResourceNotFound(
                                 "Trainee pofile not found"

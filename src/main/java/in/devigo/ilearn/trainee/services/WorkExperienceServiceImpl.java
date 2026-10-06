@@ -1,7 +1,6 @@
 package in.devigo.ilearn.trainee.services;
 
 import in.devigo.ilearn.exception.ResourceNotFound;
-import in.devigo.ilearn.security.SecurityUtils;
 import in.devigo.ilearn.trainee.dtos.WorkExperienceRequest;
 import in.devigo.ilearn.trainee.dtos.WorkExperienceResponse;
 import in.devigo.ilearn.trainee.entities.TraineeProfile;
@@ -29,7 +28,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
             Long traineeId,
             WorkExperienceRequest request) {
 
-        TraineeProfile profile = traineeRepo.findByUserId(traineeId)
+        TraineeProfile profile = traineeRepo.findByUserIdAndIsDeletedFalse(traineeId)
                 .orElseThrow(() ->
                         new ResourceNotFound(
                                 "Trainee pofile not found"
@@ -60,7 +59,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
     public List<WorkExperienceResponse> getMyWorkExperiences(
             Long traineeId
     ) {
-        TraineeProfile profile = traineeRepo.findByUserId(traineeId)
+        TraineeProfile profile = traineeRepo.findByUserIdAndIsDeletedFalse(traineeId)
                 .orElseThrow(() ->
                         new ResourceNotFound(
                                 "Trainee pofile not found"
@@ -79,7 +78,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
     public WorkExperienceResponse getWorkExperienceById(
             Long traineeId,
             Long id) {
-        TraineeProfile profile = traineeRepo.findByUserId(traineeId)
+        TraineeProfile profile = traineeRepo.findByUserIdAndIsDeletedFalse(traineeId)
                 .orElseThrow(() ->
                         new ResourceNotFound(
                                 "Trainee pofile not found"
@@ -106,7 +105,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
             Long id,
             WorkExperienceRequest request) {
 
-        TraineeProfile profile = traineeRepo.findByUserId(traineeId)
+        TraineeProfile profile = traineeRepo.findByUserIdAndIsDeletedFalse(traineeId)
                 .orElseThrow(() ->
                         new ResourceNotFound(
                                 "Trainee not found"
@@ -142,7 +141,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
             Long traineeId,
             Long id) {
 
-        TraineeProfile profile = traineeRepo.findByUserId(traineeId)
+        TraineeProfile profile = traineeRepo.findByUserIdAndIsDeletedFalse(traineeId)
                 .orElseThrow(() ->
                         new ResourceNotFound(
                                 "Trainee pofile not found"

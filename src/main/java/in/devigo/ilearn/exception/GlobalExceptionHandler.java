@@ -53,4 +53,42 @@ public class GlobalExceptionHandler {
                 .body(err);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleIllegalArgumentException(
+            Exception ex
+    ){
+
+        log.warn("Illegal argument: {}", ex.getMessage());
+
+        ErrorResponse response = ErrorResponse
+                .builder()
+                .success(false)
+                .message(ex.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(response);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleGeneralException(
+            Exception ex
+    ){
+
+        log.error("Unexpected application error", ex);
+
+        ErrorResponse response = ErrorResponse
+                .builder()
+                .success(false)
+                .message("An unexpected error occurred")
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(response);
+    }
+
 }
