@@ -49,6 +49,7 @@ public class TraineeProfileServiceImpl implements TraineeProfileService {
                 .bio(request.getBio())
                 .designation(request.getDesignation())
                 .organization(request.getOrganization())
+                .isDeleted(false)
                 .build();
 
         //saving it in database
@@ -60,7 +61,7 @@ public class TraineeProfileServiceImpl implements TraineeProfileService {
     @Override
     @Transactional(readOnly = true)
     public TraineeProfileResponse getProfile(Long userId) {
-        TraineeProfile profile = traineeRepo.findByUserId(userId)
+        TraineeProfile profile = traineeRepo.findByUserIdAndIsDeletedFalse(userId)
                 .orElseThrow(() ->
                         new ResourceNotFound(
                                 "Trainee profile not found"
@@ -72,7 +73,7 @@ public class TraineeProfileServiceImpl implements TraineeProfileService {
 
     @Override
     public TraineeProfileResponse updateProfile(Long userId, TraineeProfileRequest request) {
-        TraineeProfile profile = traineeRepo.findByUserId(userId)
+        TraineeProfile profile = traineeRepo.findByUserIdAndIsDeletedFalse(userId)
                 .orElseThrow(() ->
                         new ResourceNotFound(
                                 "Trainee profile not found"
@@ -90,6 +91,7 @@ public class TraineeProfileServiceImpl implements TraineeProfileService {
 
         return mapToResponse(profile);
     }
+
 
     private TraineeProfileResponse mapToResponse(TraineeProfile profile){
         return TraineeProfileResponse.builder()

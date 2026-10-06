@@ -59,4 +59,6 @@ public class TraineeProfileController {
 
         return ResponseEntity.ok(response);
     }
+
+
 }

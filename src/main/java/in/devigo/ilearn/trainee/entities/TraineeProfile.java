@@ -54,6 +54,9 @@ public class TraineeProfile {
     @Column(length = 200)
     private String organization;
 
+    @Column(name = "is_deleted", nullable = false)
+    private boolean isDeleted = false;
+
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 

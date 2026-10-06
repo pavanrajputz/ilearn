@@ -42,4 +42,7 @@ public class Qualification {
 
     @Column(precision = 5, scale = 2)
     private BigDecimal grade;
+
+    @Column(name = "is_deleted",  nullable = false)
+    private boolean isDeleted = false;
 }

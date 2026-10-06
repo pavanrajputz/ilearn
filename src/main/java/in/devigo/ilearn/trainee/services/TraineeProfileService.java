@@ -18,4 +18,5 @@ public interface TraineeProfileService {
             Long userId,
             TraineeProfileRequest request
     );
+
 }
