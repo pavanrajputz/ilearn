@@ -9,8 +9,8 @@ import java.util.Optional;
 
 @Repository
 public interface WorkExperienceRepository extends JpaRepository<WorkExperience, Long> {
-    List<WorkExperience> findByTraineeProfileId(Long id);
+    List<WorkExperience> findByTraineeId(Long id);
 
-    Optional<WorkExperience> findByIdAndTraineeProfileId(Long id, Long traineeProfileId);
+    Optional<WorkExperience> findByIdAndTraineeId(Long id, Long traineeId);
 
 }

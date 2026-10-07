@@ -67,7 +67,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
                 );
 
         return workRepo.
-                findByTraineeProfileId(profile.getId())
+                findByTraineeId(profile.getId())
                 .stream()
                 .map(this::mapToResponse)
                 .toList();
@@ -86,7 +86,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
                 );
 
         WorkExperience workExperience =
-                workRepo.findByIdAndTraineeProfileId(
+                workRepo.findByIdAndTraineeId(
                         id,
                         profile.getId()
                 )
@@ -113,7 +113,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
                 );
 
         WorkExperience workExperience =
-                workRepo.findByIdAndTraineeProfileId(
+                workRepo.findByIdAndTraineeId(
                                 id,
                                 profile.getId()
                         )
@@ -150,7 +150,7 @@ public class WorkExperienceServiceImpl implements WorkExperienceService {
 
         WorkExperience workExperience =
                 workRepo
-                        .findByIdAndTraineeProfileId(
+                        .findByIdAndTraineeId(
                                 id,
                                 profile.getId()
                         )

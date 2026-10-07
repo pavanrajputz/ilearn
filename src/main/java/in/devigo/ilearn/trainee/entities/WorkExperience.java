@@ -29,7 +29,7 @@ public class WorkExperience {
     private String jobTitle;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "employement_type",  nullable = false)
+    @Column(name = "employment_type",  nullable = false)
     private EmploymentType employmentType;
 
     @Column(name = "start_date",  nullable = false)
